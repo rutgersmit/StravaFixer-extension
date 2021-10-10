@@ -7,7 +7,7 @@ function find(){
   });
 
   elems = document.querySelectorAll(
-    'li[class="nav-item upgrade"]'
+    'li[class="nav-item upgrade"], div[class="modal-backdrop fade in"], div[id="flybyModal"]'
   );
   elems.forEach((element) => {
     remove(element);
