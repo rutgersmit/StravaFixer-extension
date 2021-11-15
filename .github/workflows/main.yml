@@ -33,13 +33,12 @@ jobs:
         uses: montudor/action-zip@v1.0.0
         with:
           args: zip -qq -r extension.zip src
-    
-      - name: Chrome Extension upload & publish
-        uses: Passiverecords/chrome-extension-upload-action@1.4.1
+
+      - name: Chrome Addon Action
+        # uses: trmcnvn/chrome-addon@7fc5a5ad3ff597dc64d6a13de7dcaa8515328be7
+        uses: trmcnvn/chrome-addon@v2
         with:
-          refresh-token: '1//09DnA5v6519RPCgYIARAAGAkSNwF-L9Ir2VFF_K2BWXUxb_ba60kWe0vHtvjUlAKMDps-dYcoavGe5e7vR_7BsdHNr_5SewPnoj8'
+          extension: 'ilnbgidmlamnmgaoopfpgnedckibllhd'
+          zip: './extension.zip'
           client-id: '814880299974-j23qt8slp5mus3n8j7a1vqgpr8tkuqvq.apps.googleusercontent.com'
-          client-secret: ''
-          file-name: './extension.zip'
-          app-id: 'ilnbgidmlamnmgaoopfpgnedckibllhd'
-          publish: true
+          refresh-token: '1//09DnA5v6519RPCgYIARAAGAkSNwF-L9Ir2VFF_K2BWXUxb_ba60kWe0vHtvjUlAKMDps-dYcoavGe5e7vR_7BsdHNr_5SewPnoj8'
