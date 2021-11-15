@@ -41,5 +41,5 @@ jobs:
           extension: 'ilnbgidmlamnmgaoopfpgnedckibllhd'
           zip: './extension.zip'
           client-id: '814880299974-j23qt8slp5mus3n8j7a1vqgpr8tkuqvq.apps.googleusercontent.com'
-          refresh-token: '1//09ITD2gOGC-2LCgYIARAAGAkSNwF-L9IrX1mOAEaYcVlk_qv-wvGNb0_LtwURSYAwu9aSGpmMPV2KzRGSxXZhItCSF69_FhztGyg'
-          # client-secret: 'none'
+          refresh-token: '1//09OE_8vywbrUPCgYIARAAGAkSNwF-L9IrFoQ8cxjblxqmADtt5MfJAVxDJgZ1w9dZS4cGwhC4Uyc157ftxMMjkypjFsujrYWHhJM'
+          client-secret: '4/1AX4XfWhTZlgmmzczBX62gFLEgpb4UyxJ_3LG2GfImyV3vZxizrFy9UXc2pc'
