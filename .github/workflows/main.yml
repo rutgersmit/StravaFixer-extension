@@ -37,7 +37,7 @@ jobs:
       - name: Chrome Extension upload & publish
         uses: Passiverecords/chrome-extension-upload-action@1.4.1
         with:
-          refresh-token: '814880299974-j23qt8slp5mus3n8j7a1vqgpr8tkuqvq.apps.googleusercontent.com'
+          refresh-token: '1//09DnA5v6519RPCgYIARAAGAkSNwF-L9Ir2VFF_K2BWXUxb_ba60kWe0vHtvjUlAKMDps-dYcoavGe5e7vR_7BsdHNr_5SewPnoj8'
           client-id: '814880299974-j23qt8slp5mus3n8j7a1vqgpr8tkuqvq.apps.googleusercontent.com'
           file-name: './extension.zip'
           app-id: 'ilnbgidmlamnmgaoopfpgnedckibllhd'
