@@ -34,12 +34,21 @@ jobs:
         with:
           args: zip -qq -r extension.zip src
 
-      - name: Chrome Addon Action
-        # uses: trmcnvn/chrome-addon@7fc5a5ad3ff597dc64d6a13de7dcaa8515328be7
-        uses: trmcnvn/chrome-addon@v2
+      - name: Upload & release
+        uses: mnao305/chrome-extension-upload@2.0.0
         with:
-          extension: 'ilnbgidmlamnmgaoopfpgnedckibllhd'
-          zip: './extension.zip'
+          file-path: './extension.zip'
+          extension-id: 'ilnbgidmlamnmgaoopfpgnedckibllhd'
           client-id: '814880299974-j23qt8slp5mus3n8j7a1vqgpr8tkuqvq.apps.googleusercontent.com'
           refresh-token: '1//09OE_8vywbrUPCgYIARAAGAkSNwF-L9IrFoQ8cxjblxqmADtt5MfJAVxDJgZ1w9dZS4cGwhC4Uyc157ftxMMjkypjFsujrYWHhJM'
-          #client-secret: '4/1AX4XfWhTZlgmmzczBX62gFLEgpb4UyxJ_3LG2GfImyV3vZxizrFy9UXc2pc'
+
+# Werkt niet ivm client_secret die je moet opgeven
+#      - name: Chrome Addon Action
+#        # uses: trmcnvn/chrome-addon@7fc5a5ad3ff597dc64d6a13de7dcaa8515328be7
+#        uses: trmcnvn/chrome-addon@v2
+#        with:
+#          extension: 'ilnbgidmlamnmgaoopfpgnedckibllhd'
+#          zip: './extension.zip'
+#          client-id: '814880299974-j23qt8slp5mus3n8j7a1vqgpr8tkuqvq.apps.googleusercontent.com'
+#          refresh-token: '1//09OE_8vywbrUPCgYIARAAGAkSNwF-L9IrFoQ8cxjblxqmADtt5MfJAVxDJgZ1w9dZS4cGwhC4Uyc157ftxMMjkypjFsujrYWHhJM'
+#          #client-secret: '4/1AX4XfWhTZlgmmzczBX62gFLEgpb4UyxJ_3LG2GfImyV3vZxizrFy9UXc2pc'
