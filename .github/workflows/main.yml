@@ -5,8 +5,6 @@ name: CI
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches: [ main ]
   pull_request:
     branches: [ main ]
 
@@ -24,16 +22,14 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-        
+      
+      # Zip the src folder
       - name: action-zip
         uses: montudor/action-zip@v1.0.0
         with:
           args: zip -qq -r extension.zip src
 
+      # Upload it to Chrome Webstore
       - name: Upload & release
         uses: mnao305/chrome-extension-upload@2.0.0
         with:
@@ -41,14 +37,3 @@ jobs:
           extension-id: 'ilnbgidmlamnmgaoopfpgnedckibllhd'
           client-id: '814880299974-j23qt8slp5mus3n8j7a1vqgpr8tkuqvq.apps.googleusercontent.com'
           refresh-token: '1//09OE_8vywbrUPCgYIARAAGAkSNwF-L9IrFoQ8cxjblxqmADtt5MfJAVxDJgZ1w9dZS4cGwhC4Uyc157ftxMMjkypjFsujrYWHhJM'
-
-# Werkt niet ivm client_secret die je moet opgeven
-#      - name: Chrome Addon Action
-#        # uses: trmcnvn/chrome-addon@7fc5a5ad3ff597dc64d6a13de7dcaa8515328be7
-#        uses: trmcnvn/chrome-addon@v2
-#        with:
-#          extension: 'ilnbgidmlamnmgaoopfpgnedckibllhd'
-#          zip: './extension.zip'
-#          client-id: '814880299974-j23qt8slp5mus3n8j7a1vqgpr8tkuqvq.apps.googleusercontent.com'
-#          refresh-token: '1//09OE_8vywbrUPCgYIARAAGAkSNwF-L9IrFoQ8cxjblxqmADtt5MfJAVxDJgZ1w9dZS4cGwhC4Uyc157ftxMMjkypjFsujrYWHhJM'
-#          #client-secret: '4/1AX4XfWhTZlgmmzczBX62gFLEgpb4UyxJ_3LG2GfImyV3vZxizrFy9UXc2pc'
