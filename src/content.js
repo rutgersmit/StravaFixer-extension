@@ -7,22 +7,20 @@ function find(){
   });
 
   elems = document.querySelectorAll(
-    'li[class="nav-item upgrade"], div[class="modal-backdrop fade in"], div[id="flybyModal"], div[id="your-challenges"], div[class="section sidebar-footer"], div[class="sharing"], div[data-reach-dialog-overlay]'
+    'li[class="nav-item upgrade"], div[class="modal-backdrop fade in"], div[id="flybyModal"], div[id="your-challenges"], div[class="section sidebar-footer"], div[class="sharing"], div[id="trophy-case-summary"], div[data-react-class="ChallengeJoin"]'
   );
   elems.forEach((element) => {
     remove(element);
   });
-  
-
 }
 
 function remove(elem) {
-  console.log("Remove parent element");
+  //console.log("Remove parent element");
   elem.remove();
 }
 
 function removeParent(elem) {
-  console.log("Remove element");
+  //console.log("Remove element");
   elem.parentElement.remove();
 }
 
