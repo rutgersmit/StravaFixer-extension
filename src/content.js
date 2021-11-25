@@ -7,13 +7,11 @@ function find(){
   });
 
   elems = document.querySelectorAll(
-    'li[class="nav-item upgrade"], div[class="modal-backdrop fade in"], div[id="flybyModal"], div[id="your-challenges"], div[class="section sidebar-footer"], div[class="sharing"], div[id="trophy-case-summary"]'
+    'li[class="nav-item upgrade"], div[class="modal-backdrop fade in"], div[id="flybyModal"], div[id="your-challenges"], div[class="section sidebar-footer"], div[class="sharing"], div[id="trophy-case-summary"], div[data-react-class="ChallengeJoin"]'
   );
   elems.forEach((element) => {
     remove(element);
   });
-  
-
 }
 
 function remove(elem) {
