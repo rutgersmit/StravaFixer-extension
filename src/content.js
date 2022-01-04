@@ -1,6 +1,6 @@
 function find() {
   var elems = document.querySelectorAll(
-    'div[data-react-class="ChallengeJoin"], div[data-react-class="FancyPromo"], div[data-testid="celebration_container"], div[data-react-class="ChallengeJoin"], div[data-react-class="SimplePromo"]'
+    'div[data-react-class="ChallengeJoin"], div[data-react-class="FancyPromo"], div[data-testid="celebration_container"], div[data-react-class="ChallengeJoin"], div[data-react-class="SimplePromo"], div[data-react-class="ClubJoin"]'
   );
   elems.forEach((element) => {
     removeParent(element);
