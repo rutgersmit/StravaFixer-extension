@@ -1,6 +1,6 @@
 function find() {
   var elems = document.querySelectorAll(
-    'div[data-react-class="ChallengeJoin"], div[data-react-class="FancyPromo"], div[data-testid="celebration_container"], div[data-react-class="ChallengeJoin"], div[data-react-class="SimplePromo"], div[data-react-class="ClubJoin"]'
+    'div[data-react-class="ChallengeJoin"], div[data-react-class="FancyPromo"], div[data-testid="celebration_container"], div[data-react-class="ChallengeJoin"], div[data-react-class="SimplePromo"], div[data-react-class="ClubJoin"], '
   );
   elems.forEach((element) => {
     removeParent(element);
@@ -12,6 +12,10 @@ function find() {
   elems.forEach((element) => {
     remove(element);
   });
+
+  var element = document.querySelector('div[id="suggested-follows"], a[class="btn-section-link"]');
+  if(element !== null)
+    remove(element);
 }
 
 function remove(elem) { fix(elem); }
