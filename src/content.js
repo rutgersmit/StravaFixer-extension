@@ -43,34 +43,15 @@ function httpGetAsync(theUrl, callback) {
 }
 
 function getActivities() {
-  // https://www.strava.com/athletes/1619270/relative_effort?num_weeks=1
-  httpGetAsync(
-    "https://www.strava.com/dashboard?feed_type=my_activity",
-    parseActivities
-  );
+  httpGetAsync("https://www.strava.com/athlete/training", parseActivities);
 }
 
 function parseActivities(data) {
   var div = document.querySelector("div[class='card-section']");
   if (div == null) return;
+  div.innerHTML = '';
 
-  console.log("Parsing activities");
-  console.log(data);
   var parser = new DOMParser();
   var doc = parser.parseFromString(data, "text/html");
-  var activities = doc.querySelectorAll("a[class='minimal']");
-
-  div.innerHTML = "";
-  for (let i = 0; i < activities.length; i++) {
-    let a = document.createElement("a");
-    a.className = "text-small";
-    a.href = activities[i].href.split("?")[0];
-    a.text = activities[i].text;
-
-    let s = document.createElement("strong");
-    s.appendChild(a);
-
-    div.appendChild(s);
-    div.appendChild(document.createElement("br"));
-  }
+  div.append(doc.querySelector("ul.recent-activities"));
 }
