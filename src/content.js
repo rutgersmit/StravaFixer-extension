@@ -1,4 +1,5 @@
-function find() {
+function fixThings() {
+  console.log('find and fix');
   elems = document.querySelectorAll('div[class*="Feed--entry-container--"]');
   elems.forEach((element) => {
     var c = element.childNodes[0];
@@ -32,7 +33,27 @@ function fix(elem) {
   elem.style.display = "none";
 }
 
-find();
+fixThings();
+
+function debounce(func, timeout = 300) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, args);
+    }, timeout);
+  };
+}
+
+const processChange = debounce(() => fixThings());
+var observer = new MutationObserver(function(mutations, observer) {
+  processChange();
+}).observe(document.querySelector('div[class="feed-container"]'), {
+  childList: true,
+  subtree: true,
+});
+
+
 getActivities();
 
 function httpGetAsync(theUrl, callback) {
@@ -50,6 +71,7 @@ function getActivities() {
 }
 
 function parseActivities(data) {
+  console.log('doing something');
   var div = document.querySelector("div[class='card-section']");
   if (div == null) return;
   div.innerHTML = "";
