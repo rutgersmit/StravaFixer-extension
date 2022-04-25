@@ -16,6 +16,11 @@ function fixThings() {
     remove(element);
   });
 
+  elems = document.querySelectorAll('div[data-testid="celebration_container"]');
+  elems.forEach((element) => {
+    removeParent(element);
+  });
+  
   var element = document.querySelector(
     'div[id="suggested-follows"], a[class="btn-section-link"]'
   );
