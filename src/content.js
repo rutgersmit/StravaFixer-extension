@@ -1,9 +1,12 @@
 function find() {
-  var elems = document.querySelectorAll(
-    'div[data-react-class="ChallengeJoin"], div[data-react-class="FancyPromo"], div[data-testid="celebration_container"], div[data-react-class="ChallengeJoin"], div[data-react-class="SimplePromo"], div[data-react-class="ClubJoin"]'
-  );
+  elems = document.querySelectorAll('div[class*="Feed--entry-container--"]');
   elems.forEach((element) => {
-    removeParent(element);
+    var c = element.childNodes[0];
+    if (c.hasAttribute("data-rank")) {
+      if (c.getAttribute("data-rank").indexOf(".") == -1) {
+        remove(element);
+      }
+    }
   });
 
   elems = document.querySelectorAll(
@@ -49,7 +52,7 @@ function getActivities() {
 function parseActivities(data) {
   var div = document.querySelector("div[class='card-section']");
   if (div == null) return;
-  div.innerHTML = '';
+  div.innerHTML = "";
 
   var parser = new DOMParser();
   var doc = parser.parseFromString(data, "text/html");
