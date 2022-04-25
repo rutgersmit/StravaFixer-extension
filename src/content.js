@@ -1,5 +1,4 @@
 function fixThings() {
-  console.log('find and fix');
   elems = document.querySelectorAll('div[class*="Feed--entry-container--"]');
   elems.forEach((element) => {
     var c = element.childNodes[0];
@@ -46,13 +45,12 @@ function debounce(func, timeout = 300) {
 }
 
 const processChange = debounce(() => fixThings());
-var observer = new MutationObserver(function(mutations, observer) {
+new MutationObserver(function () {
   processChange();
 }).observe(document.querySelector('div[class="feed-container"]'), {
   childList: true,
   subtree: true,
 });
-
 
 getActivities();
 
@@ -71,7 +69,6 @@ function getActivities() {
 }
 
 function parseActivities(data) {
-  console.log('doing something');
   var div = document.querySelector("div[class='card-section']");
   if (div == null) return;
   div.innerHTML = "";
