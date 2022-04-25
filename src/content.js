@@ -1,4 +1,4 @@
-function find() {
+function fixThings() {
   elems = document.querySelectorAll('div[class*="Feed--entry-container--"]');
   elems.forEach((element) => {
     var c = element.childNodes[0];
@@ -32,7 +32,26 @@ function fix(elem) {
   elem.style.display = "none";
 }
 
-find();
+fixThings();
+
+function debounce(func, timeout = 300) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, args);
+    }, timeout);
+  };
+}
+
+const processChange = debounce(() => fixThings());
+new MutationObserver(function () {
+  processChange();
+}).observe(document.querySelector('div[class="feed-container"]'), {
+  childList: true,
+  subtree: true,
+});
+
 getActivities();
 
 function httpGetAsync(theUrl, callback) {
