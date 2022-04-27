@@ -1,11 +1,9 @@
 function fixThings() {
-  elems = document.querySelectorAll('div[class*="Feed--entry-container--"]');
+  var elems = document.querySelectorAll('div[class*="Feed--entry-container--"]');
   elems.forEach((element) => {
-    var c = element.childNodes[0];
-    if (c.hasAttribute("data-rank")) {
-      if (c.getAttribute("data-rank").indexOf(".") == -1) {
-        remove(element);
-      }
+    var c = element.childNodes[0].childNodes.length;
+    if (c == 2) {
+      remove(element);
     }
   });
 

@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Strava Fixer Extension",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Removes a few things from the Strava site like things about challenges, posts about Strava news and so on.",
   "icons": {
     "32": "icon-32.png",
