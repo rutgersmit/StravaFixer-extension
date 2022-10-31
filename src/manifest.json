@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Strava Fixer Extension",
-  "version": "1.0.15",
-  "description": "Removes a few things from the Strava site like things about challenges, posts about Strava news and so on.",
+  "version": "1.0.16",
+  "description": "Removes a few things rom the Strava site like things about challenges, posts about Strava news and so on. Oh... and stupid activities like walks. Maybe I should introduce an options screen ;)",
   "icons": {
     "32": "icon-32.png",
     "128": "icon-128.png"
