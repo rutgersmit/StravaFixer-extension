@@ -7,18 +7,18 @@ function fixThings() {
     // get title of SVG
     var t = element.querySelector("title");
     if(t!=null){
+      ;
+      const stupid_workouts = ['Elliptical', 'Walk', 'Weight Training', 'Workout', 'E-Bike Ride', 'Yoga'];
       // hide stupid activities
-      if (t.textContent == "Walk") {
-        console.log("Removing a hike");
+      if (stupid_workouts.includes(t.textContent)) {
         remove(element);
       }
     }
-  
+
     var c = element.childNodes[0].childNodes.length;
     if (c == 2) {
       remove(element);
     }
-    
   });
 
   // challanges and trophies
