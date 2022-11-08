@@ -12,6 +12,8 @@ function fixThings() {
       // hide stupid activities
       if (stupid_workouts.includes(t.textContent)) {
         remove(element);
+      }else{
+        console.log(t.textContent + ' is not a stupid workout');
       }
     }
 
