@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Strava Fixed Extension Options</title>
+    <style>
+      label {
+        display: block;
+      }
+
+      .flex-container {
+        display: flex;
+      }
+
+      .flex-child {
+        flex: 1;
+      }
+
+      .flex-child:first-child {
+        margin-right: 20px;
+      }
+
+      .scrollable {
+        height: 250px;
+        overflow-y: scroll;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Strava Fixed Extension options</h1>
+    <div class="flex-container">
+      <div class="flex-child">
+        <h2>Generic features</h2>
+        <label>
+          <input type="checkbox" id="hideJoiningChallanges" />
+          Hide 'Joining challanges'
+        </label>
+
+        <label>
+          <input type="checkbox" id="hideJoinClubs" />
+          Hide 'Joining clubs'
+        </label>
+<!--
+        <label>
+          <input type="checkbox" id="hideTrophies" />
+          Hide Trophies
+        </label>
+-->
+        <label>
+          <input type="checkbox" id="hideCommutes" />
+          Hide commutes
+        </label>
+
+        <label>
+          <input type="checkbox" id="hideSidebarFooter" />
+          Hide sidebar footer
+        </label>
+
+        <label>
+          <input type="checkbox" id="hideShareButtons" />
+          Hide share buttons
+        </label>
+
+        <label>
+          <input type="checkbox" id="hideSuggestedFriends" />
+          Hide suggested friends*
+        </label>
+
+        <label>
+          <input type="checkbox" id="hideGiveSubscriptionButton" />
+          Hide 'Give a subscription' button*
+        </label>
+
+        <label>
+          <input type="checkbox" id="showLast5Activities" />
+          Show last 5 activities in left column (instead of most recent only)
+        </label>
+      </div>
+      <div class="flex-child">
+        <h2>Activity types to hide</h2>
+
+        <div class="flex-container">
+          <div class="flex-child">
+            <label>
+              <input type="checkbox" id="hiderun" />
+              Run
+            </label>
+            <label>
+              <input type="checkbox" id="hideride" />
+              Ride
+            </label>
+            <label>
+              <input type="checkbox" id="hideswim" />
+              Swim
+            </label>
+            <label>
+              <input type="checkbox" id="hidehike" />
+              Hike
+            </label>
+            <label>
+              <input type="checkbox" id="hidewalk" />
+              Walk
+            </label>
+            <label>
+              <input type="checkbox" id="hidealpineski" />
+              Alpine Ski
+            </label>
+            <label>
+              <input type="checkbox" id="hidebackcountryski" />
+              Backcountry Ski
+            </label>
+            <label>
+              <input type="checkbox" id="hidecanoe" />
+              Canoe
+            </label>
+            <label>
+              <input type="checkbox" id="hidecrossfit" />
+              Crossfit
+            </label>
+            <label>
+              <input type="checkbox" id="hideebikeride" />
+              E-Bike Ride
+            </label>
+            <label>
+              <input type="checkbox" id="hideelliptical" />
+              Elliptical
+            </label>
+            <label>
+              <input type="checkbox" id="hidegolf" />
+              Golf
+            </label>
+            <label>
+              <input type="checkbox" id="hidehandcycle" />
+              Handcycle
+            </label>
+            <label>
+              <input type="checkbox" id="hideiceskate" />
+              Ice Skate
+            </label>
+            <label>
+              <input type="checkbox" id="hideinlineskate" />
+              Inline Skate
+            </label>
+            <label>
+              <input type="checkbox" id="hidekayaking" />
+              Kayaking
+            </label>
+            <label>
+              <input type="checkbox" id="hidekitesurf" />
+              Kitesurf
+            </label>
+            <label>
+              <input type="checkbox" id="hidenordicski" />
+              Nordic Ski
+            </label>
+            <label>
+              <input type="checkbox" id="hiderockclimb" />
+              Rock Climb
+            </label>
+          </div>
+          <div class="flex-child">
+            <label>
+              <input type="checkbox" id="hiderollerski" />
+              Roller Ski
+            </label>
+            <label>
+              <input type="checkbox" id="hiderowing" />
+              Rowing
+            </label>
+            <label>
+              <input type="checkbox" id="hidesail" />
+              Sail
+            </label>
+            <label>
+              <input type="checkbox" id="hideskateboard" />
+              Skateboard
+            </label>
+            <label>
+              <input type="checkbox" id="hidesnowboard" />
+              Snowboard
+            </label>
+            <label>
+              <input type="checkbox" id="hidesnowshoe" />
+              Snowshoe
+            </label>
+            <label>
+              <input type="checkbox" id="hidesoccer" />
+              Football (Soccer)
+            </label>
+            <label>
+              <input type="checkbox" id="hidestairstepper" />
+              Stair-Stepper
+            </label>
+
+            <label>
+              <input type="checkbox" id="hidestanduppaddling" />
+              Stand Up Paddling
+            </label>
+            <label>
+              <input type="checkbox" id="hidesurfing" />
+              Surfing
+            </label>
+            <label>
+              <input type="checkbox" id="hidevelomobile" />
+              Velomobile
+            </label>
+            <label>
+              <input type="checkbox" id="hidevirtualride" />
+              Virtual Ride
+            </label>
+            <label>
+              <input type="checkbox" id="hidevirtualrun" />
+              Virtual Run
+            </label>
+            <label>
+              <input type="checkbox" id="hideweighttraining" />
+              Weight Training
+            </label>
+            <label>
+              <input type="checkbox" id="hidewheelchair" />
+              Wheelchair
+            </label>
+            <label>
+              <input type="checkbox" id="hidewindsurf" />
+              Windsurf
+            </label>
+            <label>
+              <input type="checkbox" id="hideworkout" />
+              Workout
+            </label>
+            <label>
+              <input type="checkbox" id="hideyoga" />
+              Yoga
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2>Explanation</h2>
+    <h3>Hide 'Joining challanges'</h3>
+    <div>
+        <div class="img1"><img src="option-images/hide-joined-challenge.png" /></div>
+    </div>
+
+    <h3>Hide 'Joining clubs'</h3>
+    <div>
+        <div class="img1"><img src="option-images/hide-joined-club.png" /></div>
+    </div>
+
+    <!--
+    <h3>Hide Trophies</h3>
+    <div>
+        <div class="img1"><img src="option-images/hide-" /></div>
+    </div>
+    -->
+
+    <h3>Hide commutes</h3>
+    <div>
+        <div class="img1"><img src="option-images/hide-commutes.png" /></div>
+    </div>
+    
+    <h3>Hide sidebar footer</h3>
+    <div>
+        <div class="img1"><img src="option-images/hide-sidebar-footer.png" /></div>
+    </div>
+    
+    <h3>Hide share buttons</h3>
+    <div>
+        <div class="img1"><img src="option-images/hide-share-buttons.png" /></div>
+    </div>
+
+    <h3>Hide suggested friends</h3>
+    <div>
+        <div class="img1"><img src="option-images/hide-suggested-friends.png" /></div>
+    </div>
+
+    <h3>Hide 'Give a subscription' button</h3>
+    <div>
+        <div class="img1"><img src="option-images/hide-give-subscription.png" /></div>
+    </div>
+
+
+    <h3>Show last 5 activities in left column (instead of most recent only)</h3>
+    <div>
+      <div class="img1">
+        <img src="option-images/last-5-activities.png" />
+      </div>
+    </div>
+
+    <script src="options.js"></script>
+  </body>
+</html>
