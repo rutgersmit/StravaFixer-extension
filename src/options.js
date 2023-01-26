@@ -1,6 +1,7 @@
 function save_options() {
   var hideJoiningChallanges = el("hideJoiningChallanges").checked;
-  var hideJoinClubs = el("hideJoinClubs").checked;
+  var hideJoinedChallenge = el("hideJoinedChallenge").checked;
+  var hideJoinedClub = el("hideJoinedClub").checked;
   //var hideTrophies = el("hideTrophies").checked;
   var hideCommutes = el("hideCommutes").checked;
   var hideSidebarFooter = el("hideSidebarFooter").checked;
@@ -49,7 +50,8 @@ function save_options() {
   chrome.storage.sync.set(
     {
       hideJoiningChallanges: hideJoiningChallanges,
-      hideJoinClubs: hideJoinClubs,
+      hideJoinedClub: hideJoinedClub,
+      hideJoinedChallenge: hideJoinedChallenge,
       //hideTrophies: hideTrophies,
       hideCommutes: hideCommutes,
       hideSidebarFooter: hideSidebarFooter,
@@ -103,7 +105,8 @@ function restore_options() {
   chrome.storage.sync.get(
     {
       hideJoiningChallanges: false,
-      hideJoinClubs: false,
+      hideJoinedClub: false,
+      hideJoinedChallenge: false,
       //hideTrophies: false,
       hideCommutes: false,
       hideSidebarFooter: false,
@@ -151,7 +154,8 @@ function restore_options() {
     },
     function (items) {
       el("hideJoiningChallanges").checked = items.hideJoiningChallanges;
-      el("hideJoinClubs").checked = items.hideJoinClubs;
+      el("hideJoinedClub").checked = items.hideJoinedClub;
+      el("hideJoinedChallenge").checked = items.hideJoinedChallenge;
       //el("hideTrophies").checked = items.hideTrophies;
       el("hideCommutes").checked = items.hideCommutes;
       el("hideSidebarFooter").checked = items.hideSidebarFooter;

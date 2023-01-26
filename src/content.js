@@ -1,4 +1,43 @@
 function fixThings() {
+  var filter = [];
+
+  chrome.storage.sync.get(["hideJoiningChallanges"], function (result) {
+    if (!result.key) filter.push('a[href="/challenges"]');
+  });
+
+  chrome.storage.sync.get(["hideJoinedClub"], function (result) {
+    const f = 'div[class*="AthleteJoinEntry--media"]';
+    if (!result.key && !filter.includes(f)) filter.push(f);
+  });
+
+  chrome.storage.sync.get(["hideJoinedChallenge"], function (result) {
+    const f = 'div[class*="AthleteJoinEntry--media"]';
+    if (!result.key && !filter.includes(f)) filter.push(f);
+  });
+
+  chrome.storage.sync.get(["hideCommutes"], function (result) {
+    if (!result.key) filter.push('div[class="section sidebar-footer"]');
+  });
+
+  chrome.storage.sync.get(["hideSidebarFooter"], function (result) {
+    if (!result.key) filter.push('div[class="section sidebar-footer"]');
+  });
+
+  chrome.storage.sync.get(["hideShareButtons"], function (result) {
+    if (!result.key) filter.push('div[class="section sidebar-footer"]');
+  });
+  chrome.storage.sync.get(["hideSuggestedFriends"], function (result) {
+    if (!result.key) filter.push('div[class="section sidebar-footer"]');
+  });
+
+  chrome.storage.sync.get(["hideGiveSubscriptionButton"], function (result) {
+    if (!result.key) filter.push('div[class="section sidebar-footer"]');
+  });
+
+  chrome.storage.sync.get(["showLast5Activities"], function (result) {
+    if (!result.key) filter.push('div[class="section sidebar-footer"]');
+  });
+
   var elems = document.querySelectorAll(
     'div[class*="Feed--entry-container--"]'
   );
@@ -6,42 +45,56 @@ function fixThings() {
   elems.forEach((element) => {
     // get title of SVG
     var t = element.querySelector("title");
-    if(t!=null){
-      ;
-      const stupid_workouts = ['Elliptical', 'Walk', 'Weight Training', 'Workout', 'E-Bike Ride', 'Yoga'];
+    if (t != null) {
+      const stupid_workouts = [
+        "Elliptical",
+        "Walk",
+        "Weight Training",
+        "Workout",
+        "E-Bike Ride",
+        "Yoga",
+      ];
       // hide stupid activities
       if (stupid_workouts.includes(t.textContent)) {
         remove(element);
-      }else{
-        console.log(t.textContent + ' is not a stupid workout');
+      } else {
+        //console.log(t.textContent + ' is not a stupid workout');
       }
     }
 
+    // joined club
     var c = element.childNodes[0].childNodes.length;
     if (c == 2) {
-      remove(element);
+      //remove(element);
     }
   });
 
+  //AthleteJoinEntry--media"
+
   // challanges and trophies
-  elems = document.querySelectorAll(
-    'li[class="nav-item upgrade"], div[class="modal-backdrop fade in"], div[id="flybyModal"], div[id="your-challenges"], div[class="section sidebar-footer"], div[class="sharing"], div[id="trophy-case-summary"], a[href="/challenges"]'
-  );
-  elems.forEach((element) => {
-    remove(element);
-  });
+  // elems = document.querySelectorAll(
+  //   'li[class="nav-item upgrade"], div[class="modal-backdrop fade in"], div[id="flybyModal"], div[id="your-challenges"], div[class="section sidebar-footer"], div[class="sharing"], div[id="trophy-case-summary"], a[href="/challenges"]'
+  // );
 
-  // remove celebration thing (local legend shizzle)
-  elems = document.querySelectorAll('div[data-testid="celebration_container"]');
-  elems.forEach((element) => {
-    removeParent(element);
-  });
+  // elems = document.querySelectorAll('a[href="/challenges"]');
 
-  // suggested followers
-  var element = document.querySelector(
-    'div[id="suggested-follows"], a[class="btn-section-link"]'
-  );
-  if (element !== null) remove(element);
+  // elems.forEach((element) => {
+  //   console.log("Removing element");
+  //   console.debug(element);
+  //   remove(element);
+  // });
+
+  // // remove celebration thing (local legend shizzle)
+  // elems = document.querySelectorAll('div[data-testid="celebration_container"]');
+  // elems.forEach((element) => {
+  //   removeParent(element);
+  // });
+
+  // // suggested followers
+  // var element = document.querySelector(
+  //   'div[id="suggested-follows"], a[class="btn-section-link"]'
+  // );
+  // if (element !== null) remove(element);
 }
 
 function remove(elem) {
@@ -100,9 +153,10 @@ function parseActivities(data) {
   div.append(doc.querySelector("ul.recent-activities"));
 }
 
-function moveNotifications(){
-
-  var notifications = document.querySelector('div[id="notifications-drop-down"]');
+function moveNotifications() {
+  var notifications = document.querySelector(
+    'div[id="notifications-drop-down"]'
+  );
   var targetDiv = document.querySelector('div[class="col-md-3"]');
   var nDiv = document.createElement("div");
   nDiv.classList.add("section");
